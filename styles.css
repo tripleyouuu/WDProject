@@ -1,0 +1,103 @@
+/* General styles */
+body {
+  font-family: 'consolas','courier new','monospace';
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #e3f0da;
+  /* background-image: url('https://i.pinimg.com/474x/4e/7a/40/4e7a40935a96b7b7c1dd6ae590b375e4.jpg'); */
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#instructions-box {
+  display: none;
+  flex-direction: column;
+  text-align:center;
+  align-items: center;
+  width: 35%;
+  margin: 20px auto;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: absolute;
+  z-index: 1000;
+  top: 150px;
+  background-color: #fbfbef;
+  box-shadow: 0 0 5px 2px #ccc;
+  border-radius:15px;
+
+}
+
+#timer{
+  height: 150px;
+  width: 250px;
+  border: 4px dashed #f1f1f1;
+  border-radius: 15px;
+  background-color: #fff;
+
+  #stopwatch {
+  font-size: 1.5em;
+  color:blueviolet;
+  }
+}
+
+
+
+/* Game grid */
+#game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 100px); /* Adjust based on card count */
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Cards */
+.card {
+  width: 100px;
+  height: 140px;
+  perspective: 1000px;
+  position: relative;
+  }
+
+.card > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.card-front {
+  background-image: url('https://i.pinimg.com/474x/18/17/6f/18176f79d61a24d68c804991dd339b5d.jpg');
+  transform: rotateY(0deg);
+  border: 4px solid #ccc;
+}
+
+.card-back {
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(180deg);
+  border: 4px solid #f1f1f1;
+  margin: 5px;
+}
+
+.card.flipped .card-front {
+  transform: rotateY(-180deg);
+}
+
+.card.flipped .card-back {
+  transform: rotateY(0deg);
+}
